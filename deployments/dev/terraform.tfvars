@@ -1,1 +1,1 @@
-../terraform.tfvars
+app_project="decoded-badge-281414"
