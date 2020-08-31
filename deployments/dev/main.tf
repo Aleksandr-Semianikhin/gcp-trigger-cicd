@@ -11,4 +11,8 @@ resource "google_compute_instance" "backend" {
       image = "debian-cloud/debian-9"
     }
   }
+  
+  network_interface {
+    network = "default"
+  }
 }
