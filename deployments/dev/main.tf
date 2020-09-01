@@ -5,6 +5,8 @@ resource "google_compute_instance" "backend" {
   project      = "${var.app_project}"
 
   tags = ["backend"]
+  
+  metadata_startup_script = “${file(“../install.sh”)}”
 
   boot_disk {
     initialize_params {
@@ -15,4 +17,5 @@ resource "google_compute_instance" "backend" {
   network_interface {
     network = "default"
   }
+    
 }
