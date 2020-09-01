@@ -6,7 +6,8 @@ resource "google_compute_instance" "backend" {
 
   tags = ["backend"]
   
-  metadata_startup_script = “${file(“../install.sh”)}”
+  
+  metadata_startup_script = "${file("../install.sh")}"
 
   boot_disk {
     initialize_params {
