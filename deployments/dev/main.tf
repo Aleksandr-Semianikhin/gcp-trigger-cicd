@@ -1,6 +1,7 @@
 resource "google_compute_firewall" "test-firewall" {
-  name    = "test-firewall"
-  network = "default"
+  name    		= "test-firewall"
+  network 		= "default"
+  project      	= "${var.app_project}"
 
   allow {
     protocol = "http"
