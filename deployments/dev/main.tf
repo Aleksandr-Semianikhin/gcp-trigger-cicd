@@ -1,5 +1,5 @@
-resource "google_compute_network" "test-network" {
-  name                    = "test-network"
+resource "google_compute_network" "network" {
+  name                    = "network"
   auto_create_subnetworks = true
   project 				= "${var.app_project}"
 }
@@ -13,7 +13,7 @@ resource "google_compute_firewall" "test-firewall" {
     protocol = "http"
   }
   
-  depends_on = ["google_compute_network.test-network"] 
+  depends_on = ["google_compute_network.network"] 
 }
 
 resource "google_compute_instance" "backend" {
@@ -34,11 +34,11 @@ resource "google_compute_instance" "backend" {
   }
   
   network_interface {
-    network = "test-network"
+    network = "network"
 	
 	access_config {
     }
   }
   
-  depends_on = ["google_compute_network.test-network"] 
+  depends_on = ["google_compute_network.network"] 
 }
