@@ -1,5 +1,6 @@
 resource "google_compute_network" "test-network" {
   name                    = "test-network"
+  project	=	"${var.app_project}"
   auto_create_subnetworks = true
 }
 
