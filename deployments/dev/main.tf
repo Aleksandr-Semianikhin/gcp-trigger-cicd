@@ -12,10 +12,6 @@ resource "google_compute_firewall" "test-firewall" {
   allow {
     protocol = "http"
   }
-
-  allow {
-    protocol = "https"
-  }
   
   depends_on = ["google_compute_network.test-network"] 
 }
