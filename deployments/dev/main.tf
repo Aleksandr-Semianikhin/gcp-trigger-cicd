@@ -1,12 +1,6 @@
-resource "google_compute_network" "test-network" {
-  name                    = "test-network"
-  project	=	"${var.app_project}"
-  auto_create_subnetworks = true
-}
-
 resource "google_compute_firewall" "test-firewall" {
   name    = "test-firewall"
-  network = "test-network"
+  network = "default"
 
   allow {
     protocol = "http"
@@ -15,10 +9,7 @@ resource "google_compute_firewall" "test-firewall" {
   allow {
     protocol = "https"
   }
-
-  depends_on = ["google_compute_network.test-network"] 
 }
-
 
 resource "google_compute_instance" "backend" {
   name         = "my-test-instance"
@@ -38,12 +29,9 @@ resource "google_compute_instance" "backend" {
   }
   
   network_interface {
-    network = "test-network"
+    network = "default"
 	
 	access_config {
     }
   }
-  
-  depends_on = ["google_compute_network.test-network"]
-    
 }
