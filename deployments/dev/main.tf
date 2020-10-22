@@ -1,6 +1,6 @@
 resource "google_compute_instance" "backend" {
   name         = "my-test-instance"
-  machine_type = "n1-standart-1"
+  machine_type = "n1-standard-1"
   zone         = "us-central1-a"
   project      = "${var.app_project}"
 
