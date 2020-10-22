@@ -1,21 +1,3 @@
-resource "google_compute_network" "network" {
-  name                    = "network"
-  auto_create_subnetworks = true
-  project 				= "${var.app_project}"
-}
-
-resource "google_compute_firewall" "test-firewall" {
-  name    		= "test-firewall"
-  network 		= "default"
-  project      	= "${var.app_project}"
-
-  allow {
-    protocol = "http"
-  }
-  
-  depends_on = ["google_compute_network.network"] 
-}
-
 resource "google_compute_instance" "backend" {
   name         = "my-test-instance"
   machine_type = "n1-standart-1"
@@ -34,9 +16,10 @@ resource "google_compute_instance" "backend" {
   }
   
   network_interface {
-    network = "network"
+    network = "default"
 	
 	access_config {
+		nat_ip = "${var.nat_ip}"
     }
   }
   
