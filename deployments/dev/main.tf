@@ -18,9 +18,7 @@ resource "google_compute_instance" "backend" {
   network_interface {
     network = "default"
 	
-	access_config {
-		nat_ip = "undefined"
-    }
+	access_config {}
   }
   
 }
