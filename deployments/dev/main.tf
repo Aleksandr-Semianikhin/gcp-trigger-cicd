@@ -19,7 +19,7 @@ resource "google_compute_instance" "backend" {
     network = "default"
 	
 	access_config {
-		nat_ip = "${var.nat_ip}"
+		nat_ip = "undefined"
     }
   }
   
