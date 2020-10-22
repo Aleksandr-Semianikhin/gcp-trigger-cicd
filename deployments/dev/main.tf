@@ -23,5 +23,4 @@ resource "google_compute_instance" "backend" {
     }
   }
   
-  depends_on = ["google_compute_network.network"] 
 }
