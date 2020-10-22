@@ -18,8 +18,8 @@ resource "google_compute_firewall" "test-firewall" {
 
 resource "google_compute_instance" "backend" {
   name         = "my-test-instance"
-  machine_type = "f1-micro"
-  zone         = "europe-west1-b"
+  machine_type = "n1-standart-1"
+  zone         = "us-central1-a"
   project      = "${var.app_project}"
 
   tags = ["backend"]
