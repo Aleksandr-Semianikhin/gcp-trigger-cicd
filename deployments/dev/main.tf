@@ -1,6 +1,7 @@
 resource "google_compute_firewall" "allow-http" {
     name = "additional-allow-http"
     network = "default"
+	project = "${var.app_project}"
 
     allow {
         protocol = "tcp"
