@@ -21,7 +21,7 @@ resource "google_compute_instance" "backend" {
   zone         = "us-central1-a"
   project      = "${var.app_project}"
 
-  tags = ["backend", http-server"]
+  tags = ["http-server"]
   
   
   metadata_startup_script = "${file("../install.sh")}"
